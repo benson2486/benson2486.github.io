@@ -33,9 +33,9 @@
     <label>指定送貨日期:</label>
     <input type="date" name="date01"><br>
     <label>水果種類:(三選一)</label><br>
-    <input type="radio" name="fruit" id="fruit01" value="愛文芒果(1箱)">愛文芒果(1箱) 475元<br>
-    <input type="radio" name="fruit" id="fruit02" value="有機木瓜(6台斤)">有機木瓜(6台斤) 435元<br>
-    <input type="radio" name="fruit" id="fruit03" value="黑鑽石桑葚(5台斤)">黑鑽石桑葚(5台斤) 749元<br>
+    <input type="radio" name="fruit" id="fruit01" value="草莓(1台斤)">草莓(1台斤) 179元<br>
+    <input type="radio" name="fruit" id="fruit02" value="聖女小番茄(6台斤)">聖女小番茄(6台斤) 528元<br>
+    <input type="radio" name="fruit" id="fruit03" value="蓮霧(5台斤)">蓮霧(5台斤) 955元<br>
 </form>
 <br>
 <button onclick="shoppingInfo()"><h4>結帳</h4></button>
@@ -71,13 +71,13 @@
 	        if (x.elements[i].checked == true){
 	            switch (i) {
 	                case 5:
-	                price = 475;
+	                price = 179;
 	                break;
 	                case 6:
-	                price = 435;
+	                price = 528;
 	                break;
 	                case 7:
-	                price = 749;
+	                price = 955;
 	                break;
 	            }
 	            text += "水果種類:" + x.elements[i].value + "<br>";
