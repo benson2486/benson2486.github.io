@@ -91,16 +91,14 @@
 	                break;
 			case 8:
 		        price = 950;
-		        text +="<tr>";
+	            }
+			text +="<tr>";
 		        text +="<td>"+"水果種類:"+"</td>";
 			text +="<td>"+ x.elements[i].value+"</td>";
 			text +="</tr>";
 			text +="<td>"+"價格合計:"+"</td>";
 			text +="<td>"+price+"元</td>";
 			text +="</tr>";
-	            }
-	            text += "水果種類:" + x.elements[i].value + "<br>";
-	            text += "價格合計:" + price + "元<br>";
 	        }
 	    }
 		text +="</table>";
