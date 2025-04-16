@@ -17,6 +17,12 @@
           color: blue;
           margin: 5px;
       }
+      td: nth-child(1) {
+	      color: brown;
+      }
+       td: nth-child(2) {
+	      color: blue;
+      }
    </style>
 
 </head>
@@ -32,10 +38,11 @@
     <input type="email" name="email01" value="bensonaab@gmail.com"><br>
     <label>指定送貨日期:</label>
     <input type="date" name="date01"><br>
-    <label>水果種類:(三選一)</label><br>
+    <label>水果種類:(四選一)</label><br>
     <input type="radio" name="fruit" id="fruit01" value="草莓(1台斤)">草莓(1台斤) 179元<br>
     <input type="radio" name="fruit" id="fruit02" value="聖女小番茄(6台斤)">聖女小番茄(6台斤) 528元<br>
     <input type="radio" name="fruit" id="fruit03" value="蓮霧(5台斤)">蓮霧(5台斤) 955元<br>
+    <input type="radio" name="fruit" id="fruit04" value="花蓮大西瓜(24-26斤)">花蓮大西瓜(24-26斤) 950元<br>
 </form>
 <br>
 <button onclick="shoppingInfo()"><h4>結帳</h4></button>
@@ -47,6 +54,7 @@
 	    var price = 0;
 	    var text = "<h4>您的購物資訊如下:</h4>";
 	    var i;
+	    text +="<table>";
 	    for (i = 0; i < 5; i++){
 	        switch (i) {
 	            case 0:
@@ -65,9 +73,11 @@
 	                item = "指定送貨日期: ";
 	                break;
 	        }
-	        text += item + x.elements[i].value + "<br>";
+		text += "<td>" + item +"</td>";
+	        text += "<td>" + x.elements[i].value + "</td>";
+		text += "</tr>";
 	    }
-	    for (i =5; i<= 7; i++){
+	    for (i =5; i<= 8; i++){
 	        if (x.elements[i].checked == true){
 	            switch (i) {
 	                case 5:
@@ -79,7 +89,17 @@
 	                case 7:
 	                price = 955;
 	                break;
+			case 8:
+		        price = 950;
+		        text +="<tr>";
+		        text +="<td>"+"水果種類:"+"</td>";
+			text +="<td>"+ x.elements[i].value+"</td>;
+			text +="</tr>";
+			text ++"<td>"+"價格合計:"+"</td>";
+			text +="<td>"+price+"元</td>";
+			text +="</tr>"
 	            }
+		  text +="</table>";
 	            text += "水果種類:" + x.elements[i].value + "<br>";
 	            text += "價格合計:" + price + "元<br>";
 	        }
