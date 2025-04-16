@@ -17,10 +17,10 @@
           color: blue;
           margin: 5px;
       }
-      td: nth-child(1) {
+      td:nth-child(1) {
 	      color: brown;
       }
-       td: nth-child(2) {
+       td:nth-child(2) {
 	      color: blue;
       }
    </style>
@@ -55,6 +55,7 @@
 	    var text = "<h4>您的購物資訊如下:</h4>";
 	    text +="<table>";
 	    for (i = 0; i < 5; i++){
+		text +="<tr>";
 	        switch (i) {
 	            case 0:
 	                item = "姓名: ";
@@ -94,7 +95,7 @@
 		        text +="<td>"+"水果種類:"+"</td>";
 			text +="<td>"+ x.elements[i].value+"</td>";
 			text +="</tr>";
-			text ++"<td>"+"價格合計:"+"</td>";
+			text +="<td>"+"價格合計:"+"</td>";
 			text +="<td>"+price+"元</td>";
 			text +="</tr>";
 	            }
