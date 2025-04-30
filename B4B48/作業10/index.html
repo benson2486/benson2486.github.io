@@ -58,12 +58,13 @@
     <input type="checkbox" name="fruit" id="fruit04" value="花蓮大西瓜(24~26斤)">花蓮大西瓜(24~26斤) 950元;
     購買數量:<input type="number" name="number04" id="fruit04Num"><br>
 </form>
-<button onclick="shoppingInfo()"><h4>結帳</h4></button>
+<button id= "submitBtn" onclick = "shoppingInfo()"><h4>送出</h4></button>
 <div id="demo"></div>
 <script>
 	var fruit = function (fruitType,fruitPrice,no){
 		this.Type = fruitType;
 		this.Price = fruitPrice;
+		this.No = no;
 		this.subTotal = function(no){
 			text += "<tr>";
 			text += "<td>水果種類</td>" + "<td>" + this.Type + "</td>" + "<td>共" + this.No +"單位</td>";
