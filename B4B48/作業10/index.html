@@ -4,50 +4,43 @@
     <meta charset="UTF-8">
     <title>B4B48作業10</title>
     <style>
-      h4 {
-          color: red;
-      }
-      label {
-          color: blue;
-      }
-      input {
-          color: brown;
-      }
-      div {
-          color: blue;
-          margin: 5px;
-      }
-      table {
-	      width:40%;
-	      border-color:dodgerblue;
-	      border-style:solid;
-	      border-collapse:collapse;
-      }
-      tr {
-	      text-align: left;
-	      border-color:dodgerblue;
-	      border-style:solid;
-      }
-      td{
-	      vertical-align:middle;
-	      border-color:dodgerblue;
-	      border-style:solid;
-      }
-      td:nth-child(1) {
-	      color: brown;
-      }
-       td:nth-child(2) {
-	      color: blue;
-      }
+                h4 {
+		    color: red;
+		}
+
+		div {
+		    color: red;
+		    margin: 5px;
+		}
+
+		table {
+		    width: 40%;
+		    border-color: dodgerblue;
+		    border-style:solid;
+		    border-collapse: collapse;
+		}
+		tr {
+		    text-align: left;
+		    border-color: green;
+		    border-style:solid;
+		}
+		td {
+		    vertical-align: middle;
+		    border-color: green;
+		    border-style:solid;
+		}
+		td:nth-child(1){
+		  color: brown;
+		}
    </style>
 
 </head>
 <body>
 <form id ="form01">
-   姓名:<input type="text" name="name01" value="廖育德"><br>
-    收件住址:<input type="text" name="address01" value="新北市新莊區立信一街55號7樓"><br>
+   姓名:<input type="text" name="name01" value="廖育德" id = "name"><br>
+    收件住址:<input type="text" name="address01" value="新北市新莊區立信一街55號7樓" id="affress"><br>
     電話:<input type="tel" name="tel01" value="0983230008"><br>
-    電子郵件:<input type="email" name="email01" value="bensonaab@gmail.com"><br>
+    電子郵件:<input type="email" name="email01" value="bensonaab@gmail.com" id="email"><br>
     指定送貨日期:<input type="date" name="date01"><br>
     水果種類:<br><input type="checkbox" name="fruit" id="fruit01" value="草莓(1台斤)">草莓(1台斤) 179元;
     購買數量:<input type="number" name="number01" id="fruit01Num"><br>
@@ -84,7 +77,7 @@ function shoppingInfo() {
 	var sumToPay = 0;
 	var i;
 	text = "<h4>您的購物資訊如下:</h4>";
-	text +="<table>"
+	text +="<table>";
 	for (i = 0; i < 5; i++){
 		switch (i) {
 	            case 0: item = "姓名: ";break;
@@ -119,7 +112,7 @@ for (i =5; i<= 11; i++){
 	      }
 	 }
 }
-	text += "<tr>"
+	text += "<tr>";
 	text += "<td>價格合計</td>" + "<td>" + sumToPay + "元</td>";
 	text += "</tr>";
 	text += "</table>";
