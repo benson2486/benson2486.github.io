@@ -104,21 +104,17 @@ function shoppingInfo() {
 for (i =5; i<= 11; i++){
 	 if (x.elements[i].checked === true){
 	      switch (i) {
-	          case 5: fruit01.no = x.elements[i+1].value;
-	                  sumToPay += fruit01.Price * fruit01.no;
-	                  fruit01.subTotal(fruit01.no);
+	          case 5: fruit01.subtotal(fruit01.No);
+	                  sumToPay += fruit01.Price * fruit01.No;
 	                  break;
-	          case 7: fruit02.no = x.elements[i+1].value;
-	                  sumToPay += fruit02.Price * fruit02.no;
-	                  fruit02.subTotal(fruit02.no);
+	          case 7: fruit02.subtotal(fruit02.No);
+	                  sumToPay += fruit02.Price * fruit02.No;
 	                  break;
-	          case 9: fruit03.no = x.elements[i+1].value;
-	                  sumToPay += fruit03.Price * fruit03.no;
-	                  fruit03.subTotal(fruit03.no);
+	          case 9: fruit03.subtotal(fruit03.No);
+	                  sumToPay += fruit03.Price * fruit03.No;
 	                  break;
-		  case 11: fruit04.no = x.elements[i+1].value;
-	                  sumToPay += fruit04.Price * fruit04.no;
-	                  fruit04.subTotal(fruit04.no);
+		  case 11: fruit04.subtotal(fruit04.No);
+	                  sumToPay += fruit04.Price * fruit04.No;
 	                  break;
 	      }
 	 }
