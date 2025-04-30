@@ -50,36 +50,40 @@
     電子郵件:<input type="email" name="email01" value="bensonaab@gmail.com"><br>
     指定送貨日期:<input type="date" name="date01"><br>
     水果種類:<br><input type="checkbox" name="fruit" id="fruit01" value="草莓(1台斤)">草莓(1台斤) 179元;
-    購買數量:<input type="number" name="number01"><br>
+    購買數量:<input type="number" name="number01" id="fruit01Num"><br>
     <input type="checkbox" name="fruit" id="fruit02" value="聖女小番茄(6台斤)">聖女小番茄(6台斤) 528元;
-    購買數量:<input type="number" name="number02"><br>
+    購買數量:<input type="number" name="number02" id="fruit02Num"><br>
     <input type="checkbox" name="fruit" id="fruit03" value="蓮霧(5台斤)">蓮霧(5台斤) 955元;
-    購買數量:<input type="number" name="number03"><br>
+    購買數量:<input type="number" name="number03" id="fruit03Num"><br>
     <input type="checkbox" name="fruit" id="fruit04" value="花蓮大西瓜(24~26斤)">花蓮大西瓜(24~26斤) 950元;
-    購買數量:<input type="number" name="number04"><br>
+    購買數量:<input type="number" name="number04" id="fruit04Num"><br>
 </form>
 <button onclick="shoppingInfo()"><h4>結帳</h4></button>
 <div id="demo"></div>
 <script>
-	var text = "<h4>您的購物資訊如下:</h4>";
 	var fruit = function (fruitType,fruitPrice,no){
 		this.Type = fruitType;
 		this.Price = fruitPrice;
 		this.subTotal = function(no){
-			text += "水果種類:" + this.Type + "; 共" + no +"單位<br>";
-			text += "價格小計:" + this.Price *no + "元<br>";
+			text += "<tr>";
+			text += "<td>水果種類</td>" + "<td>" + this.Type + "</td>" + "<td>共" + this.No +"單位</td>";
+			text += "<td>小計:" + this.Price * this.No + "元</td>";
+			text += "</tr>";
 		};
 	};
 	var fruit01 = new fruit("草莓(1台斤)",179, 0);
 	var fruit02 = new fruit("聖女小番茄(6台斤)",528, 0);
 	var fruit03 = new fruit("蓮霧(5台斤)",955, 0);
 	var fruit04 = new fruit("花蓮大西瓜(24~26斤)",950, 0)
+	var isSubmitted = false;
 
 function shoppingInfo() {
 	var x = document.getElementById("form01");
 	var item = " ";
 	var sumToPay = 0;
 	var i;
+	text = "<h4>您的購物資訊如下:</h4>";
+	text +="<table>"
 	for (i = 0; i < 5; i++){
 		switch (i) {
 	            case 0: item = "姓名: ";break;
@@ -88,8 +92,14 @@ function shoppingInfo() {
 	            case 3: item = "電子郵件: ";break;
 	            case 4: item = "指定送貨日期: ";break;
 	    }
-	    text += item + x.elements[i].value + "<br>";
+	    text +="<tr>";
+	    text += "<td>" + item + "</td> + "<td>" + x.elements[i].value + "</td>";
+	    text += "</tr>";
     }
+	fruit01 = new fruit("草莓(1台斤)",179, parseInt(document.getElementById("fruit01Num").value));
+	fruit02 = new fruit("聖女小番茄(6台斤)",528, parseInt(document.getElementById("fruit02Num").value));
+	fruit03 = new fruit("蓮霧(5台斤)",955, parseInt(document.getElementById("fruit03Num").value));
+	fruit04 = new fruit("花蓮大西瓜(24~26斤)",955, parseInt(document.getElementById("fruit04Num").value));
 for (i =5; i<= 11; i++){
 	 if (x.elements[i].checked === true){
 	      switch (i) {
@@ -112,8 +122,15 @@ for (i =5; i<= 11; i++){
 	      }
 	 }
 }
-	text += "價格合計:" + sumToPay +	"元<br>";
+	text += "<tr>"
+	text += "<td>價格合計</td>" + "<td>" + sumToPay + "元</td>";
+	text += "</tr>";
+	text += "</table>";
 	document.getElementById("demo").innerHTML = text;
+
+	if (!isSubmitted) {
+		document.getElementByID("submitBtn").innerHTML = "<h4>確認修正</h4>";
+		isSubmitted = true;
 	}
 
 </script>
